@@ -40,14 +40,20 @@ body.dark {
 
 .toggle-theme__icon {
     margin-right: 0.5em;
-    width: 20px;
+    font-size: 1em;
 }
 
 .toggle-theme__text {
-    font-size: 0.8rem;
+    font-size: 1rem;
 }
 
 footer {
     margin-top: auto;
     background-color: royalblue;
+}
+
+footer .container{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
 }

@@ -1,15 +1,39 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- css -->
     <link rel="stylesheet" href="css/styles.css">
+    <!-- fontawesome -->
+    <script src="https://kit.fontawesome.com/1d4e9027fc.js" crossorigin="anonymous"></script>
     <title>Document</title>
 </head>
-<body>
-    <header></header>
+
+<body class="dark">
+    <header class="header">
+        <div class="container">
+            <div class="switches">
+                <div id="toggle-theme" class="toggle-theme">
+                    <img id="toggle-icon" src="assets/icons/sun.svg" alt="moon icon" class="toggle-theme__icon">
+                    <p id="toggle-text" class="toggle-theme__text">Modo Claro</p>
+                </div>
+            </div>
+            <div class="colors">
+                <div class="colors__item colors__item--blue"></div>
+            </div>
+        </div>
+    </header>
     <main></main>
-    <footer></footer>
-    <script src="scripts.js"></script>
+    <footer>
+        <div class="container">
+            <p>Test1</p>
+            <p>Test2</p>
+            <p>Test3</p>
+        </div>
+    </footer>
+    <script src="scripts.js" type="module"></script>
 </body>
+
 </html>

@@ -1,9 +1,9 @@
 import { changeTheme } from "./helpers/changeTheme.js";
 
-const toggleTheme = document.getElementById("toggle-theme");
-const footerText = document.getElementById("footerText");
-const date = new Date().getFullYear();
+const toggleTheme = document.getElementById("toggle-theme"),
+      footerText = document.getElementById("footerText"),
+      date = new Date().getFullYear();
 
-footerText.innerHTML = `Copyright &copy; ${date} all rights reserved by <a href="https://www.linkedin.com/in/1gabrielcarrizo/" target="_blank">Gabriel Carrizo</a>`
+footerText.innerHTML = `Copyright &copy; ${date}. All rights are reserved`
 
 toggleTheme.addEventListener("click", changeTheme);

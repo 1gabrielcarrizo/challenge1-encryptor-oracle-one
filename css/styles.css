@@ -1,6 +1,7 @@
 :root {
     --bg-color: #eee;
-    --text-color: #25292c;
+    --bg-color-nav-footer: #F8F9FA;
+    --text-color: #212529;
     --transition: color 0.1s, background-color 0.2s ease-in-out;
 }
 
@@ -11,6 +12,7 @@
 body {
     margin: 0;
     display: flex;
+    font-family: 'Poppins', sans-serif;
     flex-direction: column;
     min-height: 100vh;
     background-color: var(--bg-color);
@@ -19,16 +21,20 @@ body {
 }
 
 body.dark {
-    --text-color: white;
-    --bg-color: #25292c;
+    --text-color: #fff;
+    --bg-color: #25292C;
+    --bg-color-nav-footer: #343A40;
 }
 
 .header {
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: space-between;
     height: 75px;
     padding: 0 1.5em;
+    background-color: var(--bg-color-nav-footer);
+    position: sticky;
+    top: 0;
 }
 
 .toggle-theme {
@@ -45,15 +51,77 @@ body.dark {
 
 .toggle-theme__text {
     font-size: 1rem;
+    display: none;
+}
+
+main{
+    margin: 2em;
 }
 
 footer {
     margin-top: auto;
-    background-color: royalblue;
+    background-color: var(--bg-color-nav-footer);
+    padding-top: 1em;
+    padding-bottom: 1em;
 }
 
-footer .container{
+footer .container {
     display: flex;
-    align-items: center;
-    flex-direction: column;
+    flex-wrap: wrap;
+}
+
+.footer-col{
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.container p{
+    text-align: center;
+    padding-top: 0;
+}
+
+a{
+    text-decoration: none;
+    color: currentColor;
+}
+
+.footerText__link:hover{
+    color: #00ADB5;
+}
+
+.container__icons{
+    margin: 1em 0;
+    text-align: center;
+}
+.container__icons a{
+    margin-right: 1em;
+    margin-left: 1em;
+}
+
+.toggle-theme__icon-footer {
+    font-size: 1.5em;
+    transition: transform 0.3s ease;
+}
+
+.toggle-theme__icon-footer:hover{
+    transform: scale(1.2);
+}
+
+/* como se vera la web cuando tenga 768px en ADELANTE */
+@media screen and (min-width: 768px) {
+    .toggle-theme__text{
+        display: block;
+    }
+
+    .footer-col{
+        width: 50%;
+    }
+}
+
+/* como se vera la web cuando tenga 1200px en ADELANTE */
+@media screen and (min-width: 1200px) {
+    .footer-col{
+        width: 25%;
+    }
 }

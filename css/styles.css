@@ -3,6 +3,7 @@
     --bg-color-nav-footer: #F8F9FA;
     --text-color: #212529;
     --transition: color 0.1s, background-color 0.2s ease-in-out;
+    --btn-disabled: #EA474A;
 }
 
 * {
@@ -130,6 +131,7 @@ button{
     font-family: 'Poppins', sans-serif;
 }
 
+
 .button1{
     background-color: var(--text-color);
     color: var(--bg-color);
@@ -144,6 +146,11 @@ button{
     margin-bottom: 1em;
 }
 
+.boton-deshabilitado {
+    background-color: var(--btn-disabled);
+    border-color: var(--btn-disabled);
+    cursor: not-allowed;
+}
 .main-col--2{
     /* background-color: green; */
     background-color: var(--bg-color-nav-footer);
@@ -267,7 +274,7 @@ a{
 }
 
 /* como se vera la web cuando tenga 1200px en ADELANTE */
-@media screen and (min-width: 1200px) {
+@media screen and (min-width: 900px) {
     main .container{
         flex-direction: row;
     }
@@ -290,6 +297,7 @@ a{
     .main-col__img{
         display: block;
         max-width: 100%;
+        padding-top: 2em;
     }
 
     .footer-col{

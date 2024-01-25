@@ -12,7 +12,9 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&display=swap" rel="stylesheet">
-    <title>Encriptador de texto - G6</title>
+    <!-- favicon -->
+    <link rel="shortcut icon" href="assets/img/stardew_valley.png" type="image/x-icon">
+    <title>Encriptador de texto - Oracle One - G6</title>
 </head>
 
 <body class="dark">
@@ -29,39 +31,32 @@
         </div>
     </header>
     <!-- main -->
-    <!-- <main>
-        <div class="container">
-            <div class="main-col main-col--1">
-                <textarea readonly id="" placeholder="Ingrese el texto aqui"></textarea>
-            <div class="container__buttons">
-                <button>boton 1</button>
-                <button>boton 2</button>
-            </div>
-            </div>
-            <div class="main-col main-col--2">
-                <div class="main-col__container">
-                    <img class="img-example" src="assets/img/Muñeco.png" alt="image">
-                    <p>Ningún mensaje fue encontrado</p>
-                    <p>Ingresa el texto que deseas encriptar o desencriptar.</p>
-                </div>
-            </div>
-        </div>
-        <div>
-
-        </div>
-    </main> -->
     <main>
         <div class="container">
             <div class="main-col main-col--1">
-                <div>
-                    <textarea id="textarea" placeholder="Ingrese el texto aqui"></textarea>
+                <div class="container-textarea">
+                    <textarea id="textarea" placeholder="Ingrese el texto aqui (Máximo 1000 caracteres)" maxlength="1000"></textarea>
                 </div>
-                <div class="container__buttons">
-                    <button>boton 1</button>
-                    <button>boton 2</button>
+                <div class="container-span">
+                    <small>❗ Solo letras minúsculas y sin acentos</small>
+                </div>
+                <div class="container-buttons">
+                    <button class="button1">Encriptar</button>
+                    <button class="button2">Desencriptar</button>
                 </div>
             </div>
-            <div class="main-col main-col--2">hola</div>
+            <div class="main-col main-col--2">
+                <div class="img-container">
+                    <img class="main-col__img" src="assets/img/Muñeco.png" alt="image">
+                </div>
+                <div class="main-col__container-texts main-col__container-hiden">
+                    <p class="main-col__text1">Ningún mensaje fue encontrado</p>
+                    <p class="main-col__text2">Ingresa el texto que desees encriptar o desencriptar.</p>
+                </div>
+                <div class="main-col__container-hidden">
+                    <button class="button3">Copiar</button>
+                </div>
+            </div>
         </div>
     </main>
     <!-- footer -->

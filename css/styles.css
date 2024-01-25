@@ -26,6 +26,12 @@ body.dark {
     --bg-color-nav-footer: #343A40;
 }
 
+img{
+    display: block;
+    max-width: 100%;
+}
+
+/* -----------------header----------------- */
 .header {
     display: flex;
     align-items: center;
@@ -35,6 +41,12 @@ body.dark {
     background-color: var(--bg-color-nav-footer);
     position: sticky;
     top: 0;
+}
+
+.header__logo{
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 3rem;
+    font-weight: 600;
 }
 
 .toggle-theme {
@@ -54,10 +66,68 @@ body.dark {
     display: none;
 }
 
+/* -----------------main----------------- */
 main{
     margin: 2em;
+    height: 75vh;
+    background-color: coral;
 }
 
+main .container{
+    display: flex;
+    flex-direction: column;
+    background-color: royalblue;
+    height: 100%;
+}
+
+.main-col{
+    /* align-items: center;
+    justify-content: center;
+    height: auto; */
+    height: 50%;
+}
+
+.main-col--1{
+    background-color: aqua;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.main-col--2{
+    background-color: red;
+    /* align-items: center; */
+    /* justify-content: center; */
+    /* margin-top: 15px; */
+}
+
+.main-col__container{
+    background-color: var(--bg-color);
+    border-radius: 0.5em;
+}
+
+.container__buttons{
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 100%;
+}
+
+.container__buttons button{
+    display: block;
+    max-width: 100%;
+}
+
+.img-example{
+    display: none;
+}
+
+textarea{
+    width: 100%;
+    resize: none;
+    /* height: 25vh; */
+}
+
+/* -----------------footer----------------- */
 footer {
     margin-top: auto;
     background-color: var(--bg-color-nav-footer);
@@ -70,7 +140,7 @@ footer .container {
     flex-wrap: wrap;
 }
 
-.footer-col{
+.footer-col, .main-col{
     width: 100%;
     margin-left: auto;
     margin-right: auto;

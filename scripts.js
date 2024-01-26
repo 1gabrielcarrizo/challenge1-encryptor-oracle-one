@@ -8,6 +8,10 @@ const toggleTheme = document.getElementById("toggle-theme"),
       btnDesencriptar = document.getElementById("btnDesencriptar"),
       btnCopiar = document.getElementById("btnCopiar"),
       footerText = document.getElementById("footerText"),
+      textoOculto = document.getElementById("textoOculto"),
+      imgContainer = document.getElementById("imgContainer"),
+      textsContainer = document.getElementById("textsContainer"),
+      btnContainer = document.getElementById("btnContainer"),
       date = new Date().getFullYear(),
       equivalenciaCifrada = {
         'a': 'ai',
@@ -23,7 +27,7 @@ const toggleTheme = document.getElementById("toggle-theme"),
         'ober': 'o',
         'ufat': 'u'
     };
-let palabras = "",
+let palabrasEnElTextarea = "",
     textoCifrado = "",
     textoOriginal = "";
 
@@ -31,22 +35,30 @@ let palabras = "",
 footerText.innerHTML = `Copyright &copy; ${date}. All rights are reserved`
 
 const encriptarTexto = () => {
-    palabras = textarea.value;
-    console.log(palabras);
+    palabrasEnElTextarea = textarea.value;
+    console.log(palabrasEnElTextarea);
 
-    for (let i = 0; i < palabras.length; i++) {
-        const letraActual = palabras.charAt(i);
+    for (let i = 0; i < palabrasEnElTextarea.length; i++) {
+        const letraActual = palabrasEnElTextarea.charAt(i);
         textoCifrado += equivalenciaCifrada[letraActual] || letraActual;
     }
     console.log(textoCifrado)
 }
 
-const desencriptarTexto = () => {
-    palabras = textarea.value;
-    console.log(palabras);
+const mostrarTextoCifrado = () => {
+    textoOculto.innerHTML = textoCifrado;
+    textarea.value = "";
+    imgContainer.classList.add("ocultar");
+    textsContainer.classList.add("ocultar");
+    btnContainer.classList.remove("ocultar");
+}
 
-    for (let i = 0; i < palabras.length; i++) {
-        const letraActual = palabras.charAt(i);
+const desencriptarTexto = () => {
+    palabrasEnElTextarea = textarea.value;
+    console.log(palabrasEnElTextarea);
+
+    for (let i = 0; i < palabrasEnElTextarea.length; i++) {
+        const letraActual = palabrasEnElTextarea.charAt(i);
         textoOriginal += equivalenciaOriginal[letraActual] || letraActual;
     }
     console.log(textoOriginal)
@@ -64,6 +76,7 @@ const habilitarDeshabilitarBtnEncriptar = () => {
 
 toggleTheme.addEventListener("click", changeTheme); // modo claro y oscuro
 textarea.addEventListener("input", habilitarDeshabilitarBtnEncriptar); // habilitar o deshabilitar btn
-// btnEncriptar.addEventListener("click", encriptarTexto);
-btnEncriptar.addEventListener("click", desencriptarTexto);
+btnEncriptar.addEventListener("click", encriptarTexto);
+btnEncriptar.addEventListener("click", mostrarTextoCifrado);
+// btnEncriptar.addEventListener("click", desencriptarTexto);
 // btnDesencriptar.addEventListener("click", desencriptarTexto);

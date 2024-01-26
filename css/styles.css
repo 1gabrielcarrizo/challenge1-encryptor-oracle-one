@@ -74,15 +74,15 @@ main{
     height: 75vh;
 }
 
+.ocultar{
+    display: none;
+}
+
 main .container{
     display: flex;
     flex-direction: column;
     height: 100%;
 }
-
-/* .main-col{
-    height: 50%;
-} */
 
 .main-col--1{
     display: flex;
@@ -95,8 +95,6 @@ main .container{
 .main-col--2{
     padding-left: 1em;
     padding-right: 1em;
-    /* padding: 2em; */
-    /* height: 25%; */
 }
 
 .container-textarea{
@@ -104,6 +102,7 @@ main .container{
 }
 
 textarea{
+    padding: 1em;
     box-shadow: 0 0 5px 0;
     width: 100%;
     height: 100%;
@@ -131,7 +130,6 @@ button{
     font-family: 'Poppins', sans-serif;
 }
 
-
 .button1{
     background-color: var(--text-color);
     color: var(--bg-color);
@@ -146,13 +144,20 @@ button{
     margin-bottom: 1em;
 }
 
+.button3{
+    width: auto;
+}
+
+.ocultar{
+    display: none;
+}
+
 .boton-deshabilitado {
     background-color: var(--btn-disabled);
     border-color: var(--btn-disabled);
     cursor: not-allowed;
 }
 .main-col--2{
-    /* background-color: green; */
     background-color: var(--bg-color-nav-footer);
     border-radius: 1.2em;
     display: flex;
@@ -165,19 +170,16 @@ button{
     display: none;
 }
 
-/* .main-col__container-texts{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-color: crimson;
-} */
-
 .main-col__img{
     display: none;
 }
 
 .main-col__text1{
     font-size: 1.5rem;
+}
+
+.textoOculto{
+    font-size: 1.5em;
 }
 
 /* -----------------footer----------------- */

@@ -190,12 +190,13 @@ button{
     width: 100%;
 }
 
-.textoOculto-container{
+.textoOculto-container, .test{
     max-height: 200px;
     overflow-y: auto;
+    padding-top: 1em;
 }
 
-.textoDescifrado-container{
+.textoDescifrado-container, .test{
     /* background-color: coral; */
     height: 100%;
 }
@@ -207,6 +208,19 @@ button{
     font-size: 1.5em;
     margin-top: 0;
     margin-bottom: 0;
+    word-break: break-all;
+    /* padding-top: 1em; */
+}
+
+.textoDescifrado{
+    display: flex;
+    justify-content: start;
+    text-align: start;
+    font-size: 1.5em;
+    margin-top: 0;
+    margin-bottom: 0;
+    word-break: break-all;
+    font-size: 1.5rem;
 }
 
 .button3{
@@ -216,6 +230,11 @@ button{
 .tituloMensajeOculto{
     font-size: 1.5rem;
     margin-top: 0;
+    margin-bottom: 0.5em;
+}
+
+.test{
+    padding-top: 0;
 }
 
 /* -----------------footer----------------- */
@@ -309,6 +328,12 @@ a{
     .footer-col{
         width: 50%;
     }
+
+    .textoOculto-container{
+        /* max-height: 200px;
+        overflow-y: auto; */
+        padding-top: 0;
+    }
 }
 
 /* como se vera la web cuando tenga 1200px en ADELANTE */
@@ -346,5 +371,17 @@ a{
 
     .textoOculto-container{
         max-height: 500px;
+        /* height: 100vh; */
+    }
+
+    .test{
+        max-height: 400px;
     }
 }
+
+/* como se vera la web cuando tenga 1199px en ADELANTE */
+/* @media screen and (max-width: 1199px) {
+    main{
+        margin-bottom: 5em;
+    }
+} */

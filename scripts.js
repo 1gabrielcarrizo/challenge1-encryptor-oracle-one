@@ -1,4 +1,6 @@
 import { changeTheme } from "./helpers/changeTheme.js";
+import { deshabilitarBoton, habilitarBoton } from "./helpers/enableAndDisableButton.js";
+import { indicarSiContieneCaracteresEspeciales } from "./helpers/regex.js";
 
 const toggleTheme = document.getElementById("toggle-theme"),
       textarea = document.getElementById("textarea"),
@@ -6,39 +8,62 @@ const toggleTheme = document.getElementById("toggle-theme"),
       btnDesencriptar = document.getElementById("btnDesencriptar"),
       btnCopiar = document.getElementById("btnCopiar"),
       footerText = document.getElementById("footerText"),
-      date = new Date().getFullYear();
+      date = new Date().getFullYear(),
+      equivalenciaCifrada = {
+        'a': 'ai',
+        'e': 'enter',
+        'i': 'imes',
+        'o': 'ober',
+        'u': 'ufat'
+    },
+    equivalenciaOriginal = {
+        'ai': 'a',
+        'enter': 'e',
+        'imes': 'i',
+        'ober': 'o',
+        'ufat': 'u'
+    };
+let palabras = "",
+    textoCifrado = "",
+    textoOriginal = "";
 
 
-
-
-const habilitarBoton = (boton) => boton.removeAttribute("disabled");
-const deshabilitarBoton = (boton) => boton.setAttribute("disabled", true);
-
-const indicarSiContieneCaracteresEspeciales = (texto) => /[^a-z0-9]/.test(texto);
-
-// const encriptarTexto = () => {
-//     (indicarSiContieneCaracteresEspeciales(textarea.value)) ? deshabilitarBoton(btnEncriptar) : habilitarBoton(btnEncriptar)
-//     console.log("funcion encriptar")
-//     console.log(textarea.value)
-// }
+footerText.innerHTML = `Copyright &copy; ${date}. All rights are reserved`
 
 const encriptarTexto = () => {
-    console.log("click en el boton encriptar")
+    palabras = textarea.value;
+    console.log(palabras);
+
+    for (let i = 0; i < palabras.length; i++) {
+        const letraActual = palabras.charAt(i);
+        textoCifrado += equivalenciaCifrada[letraActual] || letraActual;
+    }
+    console.log(textoCifrado)
 }
 
-const mostrarTextarea = () => {
+const desencriptarTexto = () => {
+    palabras = textarea.value;
+    console.log(palabras);
+
+    for (let i = 0; i < palabras.length; i++) {
+        const letraActual = palabras.charAt(i);
+        textoOriginal += equivalenciaOriginal[letraActual] || letraActual;
+    }
+    console.log(textoOriginal)
+}
+
+const habilitarDeshabilitarBtnEncriptar = () => {
     (indicarSiContieneCaracteresEspeciales(textarea.value)) ? 
         (deshabilitarBoton(btnEncriptar),
         btnEncriptar.classList.add("boton-deshabilitado"))
     :
         (habilitarBoton(btnEncriptar),
-        btnEncriptar.classList.remove("boton-deshabilitado"),
-        console.log(textarea.value))
-    // console.log(textarea.value)
+        btnEncriptar.classList.remove("boton-deshabilitado"))
 }
 
-footerText.innerHTML = `Copyright &copy; ${date}. All rights are reserved`
 
-toggleTheme.addEventListener("click", changeTheme);
-textarea.addEventListener("input", mostrarTextarea);
-btnEncriptar.addEventListener("click", encriptarTexto);
+toggleTheme.addEventListener("click", changeTheme); // modo claro y oscuro
+textarea.addEventListener("input", habilitarDeshabilitarBtnEncriptar); // habilitar o deshabilitar btn
+// btnEncriptar.addEventListener("click", encriptarTexto);
+btnEncriptar.addEventListener("click", desencriptarTexto);
+// btnDesencriptar.addEventListener("click", desencriptarTexto);

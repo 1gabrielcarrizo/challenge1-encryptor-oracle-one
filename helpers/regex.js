@@ -1,0 +1,1 @@
+export const indicarSiContieneCaracteresEspeciales = (texto) => /[^a-z0-9\s]/.test(texto);

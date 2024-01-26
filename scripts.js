@@ -39,14 +39,11 @@ footerText.innerHTML = `Copyright &copy; ${date}. All rights are reserved`
 const encriptarTexto = () => {
     textoCifrado = "";
     palabrasEnElTextarea = textarea.value;
-    console.log(palabrasEnElTextarea)
-    console.log(`texto original: ${palabrasEnElTextarea}`);
 
     for (let i = 0; i < palabrasEnElTextarea.length; i++) {
         const letraActual = palabrasEnElTextarea.charAt(i);
         textoCifrado += equivalenciaCifrada[letraActual] || letraActual;
     }
-    console.log(`texto cifrado: ${textoCifrado}`)
     deshabilitarBoton(btnEncriptar);
     btnEncriptar.classList.add("boton-deshabilitado");
     deshabilitarBoton(btnDesencriptar);
@@ -102,7 +99,6 @@ const descencriptarTexto = () => {
 
     deshabilitarBoton(btnDesencriptar);
     btnDesencriptar.classList.add("boton-deshabilitado");
-    console.log(`texto decifrado: ${textoDescifrado}`);
 }
 
 const habilitarDeshabilitarBtnEncriptar = () => {
@@ -128,7 +124,6 @@ const copiarTextoCifrado = () => {
     textarea.value = textoOcultoEnPantalla.textContent; //textarea
     habilitarBoton(btnDesencriptar);
     btnDesencriptar.classList.remove("boton-deshabilitado");
-    // console.clear()
 }
 
 toggleTheme.addEventListener("click", changeTheme); // modo claro y oscuro

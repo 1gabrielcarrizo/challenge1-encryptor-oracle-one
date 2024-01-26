@@ -73,7 +73,9 @@ const mostrarTextoDescifrado = () => {
     textoDescifradoContainer.classList.remove("ocultar");
     btnCopiar.classList.add("ocultar");
 
-    textarea.removeAttribute("readonly")
+    textarea.removeAttribute("readonly");
+    deshabilitarBoton(btnEncriptar);
+    btnEncriptar.classList.add("boton-deshabilitado")
 }
 
 const descencriptarTexto = () => {

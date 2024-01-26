@@ -195,6 +195,11 @@ button{
     overflow-y: auto;
 }
 
+.textoDescifrado-container{
+    /* background-color: coral; */
+    height: 100%;
+}
+
 .textoOculto{
     display: flex;
     justify-content: start;
@@ -206,6 +211,11 @@ button{
 
 .button3{
     width: 100%;
+}
+
+.tituloMensajeOculto{
+    font-size: 1.5rem;
+    margin-top: 0;
 }
 
 /* -----------------footer----------------- */

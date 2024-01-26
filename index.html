@@ -1,11 +1,99 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <!-- css -->
+    <link rel="stylesheet" href="css/styles.css">
+    <!-- fontawesome -->
+    <script src="https://kit.fontawesome.com/1d4e9027fc.js" crossorigin="anonymous"></script>
+    <!-- font family -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&display=swap" rel="stylesheet">
+    <!-- favicon -->
+    <link rel="shortcut icon" href="assets/img/stardew_valley.png" type="image/x-icon">
+    <title>Encriptador de texto - Oracle One - G6</title>
 </head>
-<body>
-    
+
+<body class="dark">
+    <!-- header -->
+    <header class="header">
+        <div>
+            <p class="header__logo">
+                <a href="">a</a>
+            </p>
+        </div>
+        <div id="toggle-theme" class="toggle-theme">
+            <i class="fa-regular fa-sun toggle-theme__icon" id="toggle-icon"></i>
+            <p id="toggle-text" class="toggle-theme__text">Modo Claro</p>
+        </div>
+    </header>
+    <!-- main -->
+    <main>
+        <div class="container">
+            <div class="main-col main-col--1">
+                <div class="container-textarea">
+                    <textarea id="textarea" placeholder="Ingrese el texto aqui (Máximo 1000 caracteres)"
+                        maxlength="1000"></textarea>
+                </div>
+                <div class="container-span">
+                    <small>❗ Solo letras minúsculas y sin acentos</small>
+                </div>
+                <div class="container-buttons">
+                    <button id="btnEncriptar" class="button1 boton-deshabilitado">Encriptar</button>
+                    <button id="btnDesencriptar" class="button2 boton-deshabilitado">Desencriptar</button>
+                </div>
+            </div>
+            <div class="main-col main-col--2">
+                <div id="sinTexto-container">
+                    <div class="img-container" id="imgContainer">
+                        <img class="main-col__img" src="assets/img/Muñeco.png" alt="image">
+                    </div>
+                    <div class="texts-container" id="textsContainer">
+                        <p class="main-col__text1">Ningún mensaje fue encontrado</p>
+                        <p class="main-col__text2">Ingresa el texto que desees encriptar o desencriptar.</p>
+                    </div>
+                </div>
+                <div id="conTexto-container" class="conTextoContainer">
+                    <div class="textoOculto-container" id="textoOcultoContainer">
+                        <p class="textoOculto" id="textoOculto"></p>
+                    </div>
+                    <div class="btnCopiar-container">
+                        <button id="btnCopiar" class="button3 ocultar">Copiar</button>
+                    </div>
+                    <div class="textoDescifrado-container ocultar" id="textoDescifradoContainer">
+                        <p class="tituloMensajeOculto">Mensaje oculto 🎉:</p>
+                        <div class="test">
+                            <p class="textoDescifrado" id="textoDescifrado"></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    <!-- footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-col">
+                <p id="footerText" class="footerText"></p>
+            </div>
+            <div class="footer-col">
+                <p>Made with ❤ by <a class="footerText__link" href="https://www.linkedin.com/in/1gabrielcarrizo/"
+                        target="_blank">Gabriel Carrizo</a>
+            </div>
+            <div class="footer-col container__icons">
+                <a href="https://www.linkedin.com/in/1gabrielcarrizo/" target="_blank">
+                    <i class="fa-brands fa-linkedin toggle-theme__icon-footer"></i>
+                </a>
+                <a href="https://github.com/1gabrielcarrizo" target="_blank">
+                    <i class="fa-brands fa-github toggle-theme__icon-footer"></i>
+                </a>
+            </div>
+        </div>
+    </footer>
+    <script src="scripts.js" type="module"></script>
 </body>
+
 </html>

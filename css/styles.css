@@ -70,7 +70,7 @@ img{
 /* -----------------main----------------- */
 main{
     margin: 1em;
-    margin-bottom: 3em;
+    margin-bottom: 5em;
     height: 75vh;
 }
 
@@ -95,6 +95,7 @@ main .container{
 .main-col--2{
     padding-left: 1em;
     padding-right: 1em;
+    /* overflow: auto; */
 }
 
 .container-textarea{
@@ -178,8 +179,28 @@ button{
     font-size: 1.5rem;
 }
 
+.conTextoContainer{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+    width: 100%;
+}
+
+.textoOculto-container{
+    max-height: 200px;
+    overflow-y: auto;
+}
+
 .textoOculto{
+    display: flex;
+    justify-content: start;
+    text-align: start;
     font-size: 1.5em;
+}
+
+.button3{
+    width: 100%;
 }
 
 /* -----------------footer----------------- */
@@ -276,7 +297,7 @@ a{
 }
 
 /* como se vera la web cuando tenga 1200px en ADELANTE */
-@media screen and (min-width: 900px) {
+@media screen and (min-width: 1200px) {
     main .container{
         flex-direction: row;
     }
@@ -304,5 +325,9 @@ a{
 
     .footer-col{
         width: 25%;
+    }
+
+    .textoOculto-container{
+        max-height: 500px;
     }
 }

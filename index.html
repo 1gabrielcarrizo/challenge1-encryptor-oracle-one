@@ -35,7 +35,8 @@
         <div class="container">
             <div class="main-col main-col--1">
                 <div class="container-textarea">
-                    <textarea id="textarea" placeholder="Ingrese el texto aqui (Máximo 1000 caracteres)" maxlength="1000"></textarea>
+                    <textarea id="textarea" placeholder="Ingrese el texto aqui (Máximo 1000 caracteres)"
+                        maxlength="1000"></textarea>
                 </div>
                 <div class="container-span">
                     <small>❗ Solo letras minúsculas y sin acentos</small>
@@ -46,18 +47,22 @@
                 </div>
             </div>
             <div class="main-col main-col--2">
-                <div class="img-container" id="imgContainer">
-                    <img class="main-col__img" src="assets/img/Muñeco.png" alt="image">
+                <div id="sinTexto-container">
+                    <div class="img-container" id="imgContainer">
+                        <img class="main-col__img" src="assets/img/Muñeco.png" alt="image">
+                    </div>
+                    <div class="texts-container" id="textsContainer">
+                        <p class="main-col__text1">Ningún mensaje fue encontrado</p>
+                        <p class="main-col__text2">Ingresa el texto que desees encriptar o desencriptar.</p>
+                    </div>
                 </div>
-                <div>
-                    <p class="textoOculto" id="textoOculto"></p>
-                </div>
-                <div class="texts-container" id="textsContainer">
-                    <p class="main-col__text1">Ningún mensaje fue encontrado</p>
-                    <p class="main-col__text2">Ingresa el texto que desees encriptar o desencriptar.</p>
-                </div>
-                <div class="ocultar" id="btnContainer">
-                    <button id="btnCopiar" class="button3">Copiar</button>
+                <div id="conTexto-container" class="conTextoContainer">
+                    <div class="textoOculto-container">
+                        <p class="textoOculto" id="textoOculto"></p>
+                    </div>
+                    <div>
+                        <button id="btnCopiar" class="button3 ocultar">Copiar</button>
+                    </div>
                 </div>
             </div>
         </div>
@@ -69,7 +74,8 @@
                 <p id="footerText" class="footerText"></p>
             </div>
             <div class="footer-col">
-                <p>Made with ❤ by <a class="footerText__link" href="https://www.linkedin.com/in/1gabrielcarrizo/" target="_blank">Gabriel Carrizo</a>
+                <p>Made with ❤ by <a class="footerText__link" href="https://www.linkedin.com/in/1gabrielcarrizo/"
+                        target="_blank">Gabriel Carrizo</a>
             </div>
             <div class="footer-col container__icons">
                 <a href="https://www.linkedin.com/in/1gabrielcarrizo/" target="_blank">

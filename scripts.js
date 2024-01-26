@@ -9,9 +9,8 @@ const toggleTheme = document.getElementById("toggle-theme"),
       btnCopiar = document.getElementById("btnCopiar"),
       footerText = document.getElementById("footerText"),
       textoOculto = document.getElementById("textoOculto"),
-      imgContainer = document.getElementById("imgContainer"),
-      textsContainer = document.getElementById("textsContainer"),
-      btnContainer = document.getElementById("btnContainer"),
+      sinTextoContainer = document.getElementById("sinTexto-container"),
+      conTextoContainer = document.getElementById("conTexto-container"),
       date = new Date().getFullYear(),
       equivalenciaCifrada = {
         'a': 'ai',
@@ -48,9 +47,9 @@ const encriptarTexto = () => {
 const mostrarTextoCifrado = () => {
     textoOculto.innerHTML = textoCifrado;
     textarea.value = "";
-    imgContainer.classList.add("ocultar");
-    textsContainer.classList.add("ocultar");
-    btnContainer.classList.remove("ocultar");
+    sinTextoContainer.classList.add("ocultar");
+    conTextoContainer.classList.remove("ocultar");
+    btnCopiar.classList.remove("ocultar");
 }
 
 const desencriptarTexto = () => {

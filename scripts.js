@@ -39,7 +39,6 @@ footerText.innerHTML = `Copyright &copy; ${date}. All rights are reserved`
 const encriptarTexto = () => {
     textoCifrado = "";
     palabrasEnElTextarea = textarea.value;
-    console.log(palabrasEnElTextarea.length)
 
     for (let i = 0; i < palabrasEnElTextarea.length; i++) {
         const letraActual = palabrasEnElTextarea.charAt(i);

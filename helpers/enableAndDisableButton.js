@@ -9,8 +9,6 @@ export const deshabilitarBoton = (boton) => boton.disabled = true;
 // funcion para decidir si habilitar o deshabilitar botones
 export const habilitarYDeshabilitarBoton = () => {
     const contenidoDelTextarea = textarea.value.trim();
-    console.log(contenidoDelTextarea.length);
-    console.log(!indicarSiContieneCaracteresEspeciales(contenidoDelTextarea));
 
     (!indicarSiContieneCaracteresEspeciales(contenidoDelTextarea) && contenidoDelTextarea !== "") ?
         (habilitarBoton(btnEncriptar),

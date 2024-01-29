@@ -25,5 +25,5 @@ export const changeTheme = () => {
     localStorage.setItem("theme", currentTheme); // guardar tema elegido en el localStorage
 }
 
-// mostrar el ultimo tema seleccionado cuando se ingresa nuevamente a la pagina
+// aplicar el ultimo tema seleccionado cuando se ingresa nuevamente a la pagina
 (savedTheme === "dark") ? applyDarkTheme() : applyLightTheme();

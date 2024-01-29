@@ -37,8 +37,10 @@ let palabrasEnElTextarea = "",
 footerText.innerHTML = `Copyright &copy; ${date}. All rights are reserved`
 
 const encriptarTexto = () => {
+    console.log("click en la funcion encriptarTexto")
     textoCifrado = "";
     palabrasEnElTextarea = textarea.value;
+    console.log(palabrasEnElTextarea.length)
 
     for (let i = 0; i < palabrasEnElTextarea.length; i++) {
         const letraActual = palabrasEnElTextarea.charAt(i);
@@ -54,6 +56,7 @@ const encriptarTexto = () => {
 }
 
 const mostrarTextoCifrado = () => {
+    console.log("click en la funcion mostrarTextoCifrado")
     textoOcultoEnPantalla.textContent = textoCifrado;
     textarea.value = "";
     sinTextoContainer.classList.add("ocultar");
@@ -102,7 +105,7 @@ const descencriptarTexto = () => {
 }
 
 const habilitarDeshabilitarBtnEncriptar = () => {
-    (indicarSiContieneCaracteresEspeciales(textarea.value) || textarea.value.length < 1) ? 
+    (indicarSiContieneCaracteresEspeciales(textarea.value) || textarea.length > 0 || palabrasEnElTextarea.length > 0) ? 
         (deshabilitarBoton(btnEncriptar),
         deshabilitarBoton(btnDesencriptar),
         btnEncriptar.classList.add("boton-deshabilitado"),

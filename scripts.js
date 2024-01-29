@@ -1,8 +1,8 @@
+import { mostrarBotonBloqueado, mostrarBotonDisponible, mostrarElemento, ocultarElemento } from "./helpers/addAndRemoveClassList.js";
 import { changeTheme } from "./helpers/changeTheme.js";
-import { deshabilitarBoton, habilitarBoton } from "./helpers/enableAndDisableButton.js";
-import { indicarSiContieneCaracteresEspeciales } from "./helpers/regex.js";
+import { deshabilitarBoton, habilitarBoton, habilitarYDeshabilitarBoton } from "./helpers/enableAndDisableButton.js";
 
-const toggleTheme = document.getElementById("toggle-theme"),
+export const toggleTheme = document.getElementById("toggle-theme"),
       textarea = document.getElementById("textarea"),
       btnEncriptar = document.getElementById("btnEncriptar"),
       btnDesencriptar = document.getElementById("btnDesencriptar"),
@@ -45,34 +45,34 @@ const encriptarTexto = () => {
         textoCifrado += equivalenciaCifrada[letraActual] || letraActual;
     }
     deshabilitarBoton(btnEncriptar);
-    btnEncriptar.classList.add("boton-deshabilitado");
+    mostrarBotonBloqueado(btnEncriptar);
     deshabilitarBoton(btnDesencriptar);
-    btnDesencriptar.classList.add("boton-deshabilitado");
+    mostrarBotonBloqueado(btnDesencriptar);
     textarea.setAttribute("readonly", true)
-    textoDescifradoContainer.classList.add("ocultar");
-    textoOcultoContainer.classList.remove("ocultar");
+    ocultarElemento(textoDescifradoContainer);
+    mostrarElemento(textoOcultoContainer);
 }
 
 const mostrarTextoCifrado = () => {
     textoOcultoEnPantalla.textContent = textoCifrado;
     textarea.value = "";
-    sinTextoContainer.classList.add("ocultar");
-    conTextoContainer.classList.remove("ocultar");
-    btnCopiar.classList.remove("ocultar");
+    ocultarElemento(sinTextoContainer);
+    mostrarElemento(conTextoContainer);
+    mostrarElemento(btnCopiar);
 }
 
 const mostrarTextoDescifrado = () => {
     textoDescifradoEnPantalla.textContent = textoDescifrado;
     textarea.value = "";
-    sinTextoContainer.classList.add("ocultar");
-    conTextoContainer.classList.remove("ocultar");
-    textoDescifradoEnPantalla.classList.remove("ocultar");
-    textoDescifradoContainer.classList.remove("ocultar");
-    btnCopiar.classList.add("ocultar");
+    ocultarElemento(sinTextoContainer);
+    mostrarElemento(conTextoContainer);
+    mostrarElemento(textoDescifradoEnPantalla);
+    mostrarElemento(textoDescifradoContainer);
+    ocultarElemento(btnCopiar);
 
     textarea.removeAttribute("readonly");
     deshabilitarBoton(btnEncriptar);
-    btnEncriptar.classList.add("boton-deshabilitado")
+    mostrarBotonBloqueado(btnEncriptar);
 }
 
 const descencriptarTexto = () => {
@@ -98,36 +98,23 @@ const descencriptarTexto = () => {
     }
 
     deshabilitarBoton(btnDesencriptar);
-    btnDesencriptar.classList.add("boton-deshabilitado");
-}
-
-const habilitarDeshabilitarBtnEncriptar = () => {
-    (indicarSiContieneCaracteresEspeciales(textarea.value) || textarea.value.length < 1) ? 
-        (deshabilitarBoton(btnEncriptar),
-        deshabilitarBoton(btnDesencriptar),
-        btnEncriptar.classList.add("boton-deshabilitado"),
-        btnDesencriptar.classList.add("boton-deshabilitado"))
-    :
-        (habilitarBoton(btnEncriptar),
-        habilitarBoton(btnDesencriptar),
-        btnEncriptar.classList.remove("boton-deshabilitado"),
-        btnDesencriptar.classList.remove("boton-deshabilitado"))
+    mostrarBotonBloqueado(btnDesencriptar);
 }
 
 const copiarTextoCifrado = () => {
-    alert("Se ha copiado con exito el contenido y se lo ha pegado automaticamente en el textarea para descifrarlo")
-    sinTextoContainer.classList.remove("ocultar");
-    conTextoContainer.classList.add("ocultar");
-    textoOcultoEnPantalla.classList.add("ocultar");
-    btnCopiar.classList.add("ocultar");
-    textoOcultoContainer.classList.add("ocultar");
+    alert("Se ha copiado con exito el contenido y se lo ha pegado automaticamente en el textarea para descifrarlo");
+    mostrarElemento(sinTextoContainer);
+    ocultarElemento(conTextoContainer);
+    ocultarElemento(textoOcultoEnPantalla);
+    ocultarElemento(btnCopiar);
+    ocultarElemento(textoOcultoContainer);
     textarea.value = textoOcultoEnPantalla.textContent; //textarea
     habilitarBoton(btnDesencriptar);
-    btnDesencriptar.classList.remove("boton-deshabilitado");
+    mostrarBotonDisponible(btnDesencriptar);
 }
 
-toggleTheme.addEventListener("click", changeTheme); // modo claro y oscuro
-textarea.addEventListener("input", habilitarDeshabilitarBtnEncriptar); // habilitar o deshabilitar btn
+toggleTheme.addEventListener("click", changeTheme);
+textarea.addEventListener("input", habilitarYDeshabilitarBoton);
 btnEncriptar.addEventListener("click", encriptarTexto);
 btnEncriptar.addEventListener("click", mostrarTextoCifrado);
 btnCopiar.addEventListener("click", copiarTextoCifrado);

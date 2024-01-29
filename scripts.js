@@ -105,16 +105,33 @@ const descencriptarTexto = () => {
 }
 
 const habilitarDeshabilitarBtnEncriptar = () => {
-    (indicarSiContieneCaracteresEspeciales(textarea.value) || textarea.length > 0 || palabrasEnElTextarea.length > 0) ? 
-        (deshabilitarBoton(btnEncriptar),
-        deshabilitarBoton(btnDesencriptar),
-        btnEncriptar.classList.add("boton-deshabilitado"),
-        btnDesencriptar.classList.add("boton-deshabilitado"))
-    :
+    const contenidoDelTextarea = textarea.value.trim();
+    console.log(contenidoDelTextarea.length);
+    console.log(!indicarSiContieneCaracteresEspeciales(contenidoDelTextarea));
+
+    (!indicarSiContieneCaracteresEspeciales(contenidoDelTextarea) && contenidoDelTextarea !== "") ?
         (habilitarBoton(btnEncriptar),
         habilitarBoton(btnDesencriptar),
         btnEncriptar.classList.remove("boton-deshabilitado"),
         btnDesencriptar.classList.remove("boton-deshabilitado"))
+    :
+        (deshabilitarBoton(btnEncriptar),
+        deshabilitarBoton(btnDesencriptar),
+        btnEncriptar.classList.add("boton-deshabilitado"),
+        btnDesencriptar.classList.add("boton-deshabilitado"))
+
+
+
+    // (indicarSiContieneCaracteresEspeciales(textarea.value) || textarea.length > 0 || palabrasEnElTextarea.length > 0) ? 
+        // (deshabilitarBoton(btnEncriptar),
+        // deshabilitarBoton(btnDesencriptar),
+        // btnEncriptar.classList.add("boton-deshabilitado"),
+        // btnDesencriptar.classList.add("boton-deshabilitado"))
+    // :
+        // (habilitarBoton(btnEncriptar),
+        // habilitarBoton(btnDesencriptar),
+        // btnEncriptar.classList.remove("boton-deshabilitado"),
+        // btnDesencriptar.classList.remove("boton-deshabilitado"))
 }
 
 const copiarTextoCifrado = () => {

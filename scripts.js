@@ -1,6 +1,6 @@
-import { mostrarBotonBloqueado, mostrarBotonDisponible, mostrarElemento, ocultarElemento } from "./helpers/addAndRemoveClassList.js";
+import { mostrarElemento, ocultarElemento } from "./helpers/addAndRemoveClassList.js";
 import { changeTheme } from "./helpers/changeTheme.js";
-import { deshabilitarBoton, deshabilitarBotonDisponible, habilitarBoton, habilitarBotonDisponible, habilitarYDeshabilitarBoton } from "./helpers/enableAndDisableButton.js";
+import { deshabilitarBotonDisponible, habilitarBotonDisponible, habilitarYDeshabilitarBoton } from "./helpers/enableAndDisableButton.js";
 
 export const toggleTheme = document.getElementById("toggle-theme"),
       textarea = document.getElementById("textarea"),

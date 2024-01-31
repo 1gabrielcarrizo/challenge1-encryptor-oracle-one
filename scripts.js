@@ -1,6 +1,6 @@
 import { mostrarBotonBloqueado, mostrarBotonDisponible, mostrarElemento, ocultarElemento } from "./helpers/addAndRemoveClassList.js";
 import { changeTheme } from "./helpers/changeTheme.js";
-import { deshabilitarBoton, habilitarBoton, habilitarYDeshabilitarBoton } from "./helpers/enableAndDisableButton.js";
+import { deshabilitarBoton, deshabilitarBotonDisponible, habilitarBoton, habilitarBotonDisponible, habilitarYDeshabilitarBoton } from "./helpers/enableAndDisableButton.js";
 
 export const toggleTheme = document.getElementById("toggle-theme"),
       textarea = document.getElementById("textarea"),
@@ -44,10 +44,8 @@ const encriptarTexto = () => {
         const letraActual = palabrasEnElTextarea.charAt(i);
         textoCifrado += equivalenciaCifrada[letraActual] || letraActual;
     }
-    deshabilitarBoton(btnEncriptar);
-    mostrarBotonBloqueado(btnEncriptar);
-    deshabilitarBoton(btnDesencriptar);
-    mostrarBotonBloqueado(btnDesencriptar);
+    deshabilitarBotonDisponible(btnEncriptar);
+    deshabilitarBotonDisponible(btnDesencriptar);
     textarea.setAttribute("readonly", true)
     ocultarElemento(textoDescifradoContainer);
     mostrarElemento(textoOcultoContainer);
@@ -71,8 +69,7 @@ const mostrarTextoDescifrado = () => {
     ocultarElemento(btnCopiar);
 
     textarea.removeAttribute("readonly");
-    deshabilitarBoton(btnEncriptar);
-    mostrarBotonBloqueado(btnEncriptar);
+    deshabilitarBotonDisponible(btnEncriptar);
 }
 
 const descencriptarTexto = () => {
@@ -96,9 +93,7 @@ const descencriptarTexto = () => {
             }
         }
     }
-
-    deshabilitarBoton(btnDesencriptar);
-    mostrarBotonBloqueado(btnDesencriptar);
+    deshabilitarBotonDisponible(btnDesencriptar);
 }
 
 const copiarTextoCifrado = () => {
@@ -109,8 +104,7 @@ const copiarTextoCifrado = () => {
     ocultarElemento(btnCopiar);
     ocultarElemento(textoOcultoContainer);
     textarea.value = textoOcultoEnPantalla.textContent; //textarea
-    habilitarBoton(btnDesencriptar);
-    mostrarBotonDisponible(btnDesencriptar);
+    habilitarBotonDisponible(btnDesencriptar);
 }
 
 toggleTheme.addEventListener("click", changeTheme);

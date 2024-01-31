@@ -2,22 +2,27 @@ import { btnDesencriptar, btnEncriptar } from "../scripts.js";
 import { mostrarBotonBloqueado, mostrarBotonDisponible } from "./addAndRemoveClassList.js";
 import { indicarSiContieneCaracteresEspeciales } from "./regex.js";
 
-// funcion para habilitar botones
+// habilitar boton
 export const habilitarBoton = (boton) => boton.disabled = false;
-// funcion para deshabiltiar botones
+// deshabilitar boton
 export const deshabilitarBoton = (boton) => boton.disabled = true;
+// habilitar y cambiar el color del boton a disponible
+export const habilitarBotonDisponible = (boton) => {
+    habilitarBoton(boton);
+    mostrarBotonDisponible(boton)
+};
+// deshabilitar y cambiar el color del boton a bloqueado
+export const deshabilitarBotonDisponible = (boton) => {
+    deshabilitarBoton(boton);
+    mostrarBotonBloqueado(boton);
+};
 // funcion para decidir si habilitar o deshabilitar botones
 export const habilitarYDeshabilitarBoton = () => {
     const contenidoDelTextarea = textarea.value.trim();
-    
     (!indicarSiContieneCaracteresEspeciales(contenidoDelTextarea) && contenidoDelTextarea !== "") ?
-        (habilitarBoton(btnEncriptar),
-        habilitarBoton(btnDesencriptar),
-        mostrarBotonDisponible(btnEncriptar),
-        mostrarBotonDisponible(btnDesencriptar))
+        (habilitarBotonDisponible(btnEncriptar),
+        habilitarBotonDisponible(btnDesencriptar))
     :
-        (deshabilitarBoton(btnEncriptar),
-        deshabilitarBoton(btnDesencriptar),
-        mostrarBotonBloqueado(btnEncriptar),
-        mostrarBotonBloqueado(btnDesencriptar))
+        (deshabilitarBotonDisponible(btnEncriptar),
+        deshabilitarBotonDisponible(btnDesencriptar))
 }

@@ -20,8 +20,8 @@ export const deshabilitarBotonDisponible = (boton) => {
     mostrarBotonBloqueado(boton);
 };
 
-// funcion para decidir si habilitar o deshabilitar botones
-export const habilitarYDeshabilitarBoton = () => {
+// habilitar o deshabilitar botones de acuerdo a lo que se ingresa en el textarea
+export const habilitarYDeshabilitarBotones = () => {
     const contenidoDelTextarea = textarea.value.trim();
     (!indicarSiContieneCaracteresEspeciales(contenidoDelTextarea) && contenidoDelTextarea !== "") ?
         (habilitarBotonDisponible(btnEncriptar),

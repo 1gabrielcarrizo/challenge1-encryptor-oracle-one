@@ -1,7 +1,7 @@
 import { btnCopiar, btnDesencriptar, btnEncriptar, textarea } from "../scripts.js";
 import { mostrarElemento, ocultarElemento } from "./addAndRemoveClassList.js";
 import { deshabilitarBotonDisponible, habilitarBotonDisponible } from "./enableAndDisableButton.js";
-import { textoCifrado, textoDescifrado } from "./encryptAndDecryptText.js";
+import { descencriptarTexto, encriptarTexto, textoCifrado, textoDescifrado } from "./encryptAndDecryptText.js";
 
 // declaracion de constantes
 export const textoOcultoEnPantalla = document.getElementById("textoOculto"),
@@ -12,12 +12,18 @@ export const textoOcultoEnPantalla = document.getElementById("textoOculto"),
       textoOcultoContainer = document.getElementById("textoOcultoContainer");
 
 // mostrar el texto encriptado en la pantalla
-export const mostrarTextoCifrado = () => {
+const mostrarTextoCifrado = () => {
     textoOcultoEnPantalla.textContent = textoCifrado;
     textarea.value = "";
     ocultarElemento(sinTextoContainer);
     mostrarElemento(conTextoContainer);
     mostrarElemento(btnCopiar);
+};
+
+// encriptar texto y mostrarlo en la pantalla
+export const encriptarTextoYMostrarlo = () => {
+    encriptarTexto();
+    mostrarTextoCifrado();
 };
 
 // mostrar el texto desencriptado en la pantalla
@@ -31,6 +37,12 @@ export const mostrarTextoDescifrado = () => {
     ocultarElemento(btnCopiar);
     textarea.removeAttribute("readonly");
     deshabilitarBotonDisponible(btnEncriptar);
+};
+
+// desencriptar texto y mostrarlo en la pantalla
+export const desencriptarTextoYMostrarlo = () => {
+    descencriptarTexto();
+    mostrarTextoDescifrado();
 };
 
 // copiar el texto encriptado automaticamente en el textarea

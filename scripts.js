@@ -1,7 +1,6 @@
 import { changeTheme } from "./helpers/changeTheme.js";
-import { habilitarYDeshabilitarBoton } from "./helpers/enableAndDisableButton.js";
-import { descencriptarTexto, encriptarTexto } from "./helpers/encryptAndDecryptText.js";
-import { copiarTextoCifrado, mostrarTextoCifrado, mostrarTextoDescifrado } from "./helpers/showAndCopyText.js";
+import { habilitarYDeshabilitarBotones } from "./helpers/enableAndDisableButton.js";
+import { copiarTextoCifrado, desencriptarTextoYMostrarlo, encriptarTextoYMostrarlo } from "./helpers/showAndCopyText.js";
 
 export const toggleTheme = document.getElementById("toggle-theme"),
       textarea = document.getElementById("textarea"),
@@ -28,9 +27,7 @@ export const toggleTheme = document.getElementById("toggle-theme"),
 footerText.innerHTML = `Copyright &copy; ${date}. All rights are reserved`
 
 toggleTheme.addEventListener("click", changeTheme);
-textarea.addEventListener("input", habilitarYDeshabilitarBoton);
-btnEncriptar.addEventListener("click", encriptarTexto);
-btnEncriptar.addEventListener("click", mostrarTextoCifrado);
+textarea.addEventListener("input", habilitarYDeshabilitarBotones);
+btnEncriptar.addEventListener("click", encriptarTextoYMostrarlo);
 btnCopiar.addEventListener("click", copiarTextoCifrado);
-btnDesencriptar.addEventListener("click", descencriptarTexto);
-btnDesencriptar.addEventListener("click", mostrarTextoDescifrado);
+btnDesencriptar.addEventListener("click", desencriptarTextoYMostrarlo);

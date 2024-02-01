@@ -1,11 +1,14 @@
-import { btnDesencriptar, btnEncriptar, equivalenciaCifrada, equivalenciaOriginal, textarea, textoDescifradoContainer, textoOcultoContainer } from "../scripts.js";
+import { btnDesencriptar, btnEncriptar, equivalenciaCifrada, equivalenciaOriginal, textarea } from "../scripts.js";
 import { mostrarElemento, ocultarElemento } from "./addAndRemoveClassList.js";
 import { deshabilitarBotonDisponible } from "./enableAndDisableButton.js";
+import { textoDescifradoContainer, textoOcultoContainer } from "./showAndCopyText.js";
 
+// declaracion de variables
 export let palabrasEnElTextarea = "",
     textoCifrado = "",
     textoDescifrado = "";
 
+// encriptar el texto ingresado en el textarea
 export const encriptarTexto = () => {
     textoCifrado = "";
     palabrasEnElTextarea = textarea.value.trim();
@@ -19,8 +22,9 @@ export const encriptarTexto = () => {
     textarea.setAttribute("readonly", true)
     ocultarElemento(textoDescifradoContainer);
     mostrarElemento(textoOcultoContainer);
-}
+};
 
+// desencriptar el texto
 export const descencriptarTexto = () => {
     palabrasEnElTextarea = textarea.value.trim();
     textoDescifrado = "";
@@ -43,4 +47,4 @@ export const descencriptarTexto = () => {
         }
     }
     deshabilitarBotonDisponible(btnDesencriptar);
-}
+};
